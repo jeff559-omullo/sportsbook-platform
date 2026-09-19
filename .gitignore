@@ -1,21 +1,38 @@
+cat > .gitignore << 'EOF'
+# Dependencies
 node_modules
 
+# Next.js
 .next
 
+# Build
 dist
-
 coverage
 
+# Environment
 .env
-
 .env.*
-
 !.env.example
 
-pnpm-lock.yaml
+# Logs
+logs
+*.log
 
+# IDE
 .vscode
-
 .idea
 
+# OS
 .DS_Store
+Thumbs.db
+
+# Turbo
+.turbo
+
+# NestJS
+apps/api/dist
+
+# Testing
+playwright-report
+test-results
+EOF
