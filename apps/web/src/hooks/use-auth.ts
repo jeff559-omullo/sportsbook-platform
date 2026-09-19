@@ -22,7 +22,7 @@ export function useAuth() {
 
         setLoggedIn(true);
 
-      } catch (error) {
+      } catch {
 
         console.log("Invalid session");
 

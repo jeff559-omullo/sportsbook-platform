@@ -34,7 +34,7 @@ class AuthService {
 
   async me() {
     const response =
-      await api.get<ApiResponse<any>>(
+      await api.get<ApiResponse<user>>(
         "/auth/me",
       );
 
