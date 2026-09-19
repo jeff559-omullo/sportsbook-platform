@@ -1,10 +1,11 @@
-import { api } from "@/lib/api";
+import api from "@/lib/api";
 
 import {
   ApiResponse,
   AuthResponse,
   LoginDto,
   RegisterDto,
+  User,
 } from "@/types/auth";
 
 class AuthService {
@@ -34,7 +35,7 @@ class AuthService {
 
   async me() {
     const response =
-      await api.get<ApiResponse<user>>(
+      await api.get<ApiResponse<User>>(
         "/auth/me",
       );
 

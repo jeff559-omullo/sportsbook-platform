@@ -3,7 +3,7 @@ import { create } from "zustand";
 export type Market = "HOME" | "DRAW" | "AWAY";
 
 export interface BetSelection {
-  id: number;
+  id: string;
   home: string;
   away: string;
   market: Market;

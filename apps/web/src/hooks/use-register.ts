@@ -4,8 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import api from "@/lib/api";
 
 interface RegisterDto {
-  username: string;
-  email: string;
+  phone: string;
   password: string;
 }
 
@@ -13,10 +12,12 @@ interface RegisterResponse {
   success: boolean;
   message: string;
   accessToken?: string;
+  refreshToken?: string;
   user?: {
     id: string;
-    username: string;
-    email: string;
+    username?: string;
+    email?: string;
+    phone?: string;
   };
 }
 
@@ -29,7 +30,7 @@ export function useRegister() {
     mutationFn: async (data) => {
       const response = await api.post<RegisterResponse>(
         "/auth/register",
-        data
+        data,
       );
 
       return response.data;
@@ -39,7 +40,7 @@ export function useRegister() {
       if (data.accessToken) {
         localStorage.setItem(
           "accessToken",
-          data.accessToken
+          data.accessToken,
         );
       }
     },
